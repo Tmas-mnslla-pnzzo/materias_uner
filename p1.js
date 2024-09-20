@@ -52,21 +52,27 @@ let data={
   }
 
 function myFunction(ele) {
-  var corr2=[];
   var id=ele.id;
   let id2=id.slice(0, -2);
   var box = document.getElementById(id2);
   var checkBox = document.getElementById(id);
-
   var corr=comprobar()[0];
   var corrd=comprobar()[1];
   var cajas=comprobar()[2];
+  var por=cajas.length/50*100;
+
+  document.getElementById("r").innerHTML = "Carrera completada al "+por.toString()+"%";
 
   for (var i = 0; i < corr.length; i++) {
     var box2 = document.getElementById(corr[i]);
     box2.style.background = "#59cd90";
     var cbox2 = document.getElementById(corr[i]+"_i");
     cbox2.disabled = false;
+  }
+
+  for (var i = 0; i < cajas.length; i++) {
+    var box2 = document.getElementById(cajas[i]);
+    box2.style.background = "#3fa7d6";
   }
 
   for (var i = 0; i < corrd.length; i++) {
@@ -77,10 +83,6 @@ function myFunction(ele) {
     cbox3.checked = false;
   }
 
-  for (var i = 0; i < cajas.length; i++) {
-    var box2 = document.getElementById(cajas[i]);
-    box2.style.background = "#3fa7d6";
-  }
 } 
 
 function comprobar(){
