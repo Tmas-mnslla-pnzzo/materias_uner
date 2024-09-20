@@ -1,65 +1,73 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+
 <title>Materias Ing. Mec.</title>
 <h1>Materias Plan 2023 - Ingeniería Mecatronica</h1>
 
-<form action="/action_page.php">
+<h2 id="r">Carrera completada al 0%</h1>
 
+</head>
+
+<body>
+
+<form action="/action_page.php">
+  
+  <label id="Año" >Año</label>
+  <label id="ctm" >ctm</label>
   <label id="A" >A</label>
   <label id="nombre" >Nombre:</label><br>
 
-  
-  <input type="checkbox" onclick='myFunction(this);' id="mb_i"><label id="mb"> Matemática Básica</label><br>
-  <input type="checkbox" onclick='myFunction(this);' id="ic_i"><label id="ic"> Introducción al Cálculo</label><br>
-  <input type="checkbox" onclick='myFunction(this);' id="sr1_i"><label id="sr1"> Sistemas de Representación I</label><br>
-  <input type="checkbox" onclick='myFunction(this);' id="if_i"><label id="if"> Introducción a Física</label><br>
-  <input type="checkbox" onclick='myFunction(this);' name="th" id="fi_i"><label id="fi"> Fundamentos de Informática</label><br>
-  <input type="checkbox" onclick='myFunction(this);' name="th" id="dcc_i"><label id="dcc" > Desarrollo de la Competencia Comunicativa</label><br>
-  <input type="checkbox" onclick='myFunction(this);' id="ii_i"><label id="ii"> Introducción a la Ingeniería</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="f1_i"><label id="f1"> Física I</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="c1_i"><label id="c1"> Cálculo I</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sr2_i"><label id="sr2"> Sistemas de Representación II</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="q_i"><label id="q"> Química</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="co1_i"><label id="co1"> Computación I</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="f2_i"><label id="f2"> Física II</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="alga_i"><label id="alga"> Álgebra Lineal y Geometría Analítica</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="tmt_i"><label id="tmt"> Termodinámica y Máquinas Térmicas</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="co2_i"><label id="co2"> Computación II</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="i1_i"><label id="i1"> Inglés I</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="f3_i"><label id="f3"> Física III</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="c2_i"><label id="c2"> Cálculo II</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="et_i"><label id="et"> Electrotecnia</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="cm_i"><label id="cm"> Ciencias de los Materiales</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="edcn_i"><label id="edcn"> Ecuaciones Diferenciales y Cálculo Numérico</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="eb_i"><label id="eb"> Electrónica Básica</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="erm_i"><label id="erm"> Estática y Resistencia de los Materiales</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ss_i"><label id="ss"> Sistemas y Señales</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="lmmee_i"><label id="lmmee"> Laboratorio de Mediciones Mecánicas, Eléctricas y Electrónicas</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="i2_i"><label id="i2"> Inglés II</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ed_i"><label id="ed"> Electrónica Digital</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sm1_i"><label id="sm1"> Sistemas Mecatrónicos I</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="mei_i"><label id="mei"> Máquinas Eléctricas Industriales</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="iei_i"><label id="iei"> Instalaciones Eléctricas Industriales</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="est_i"><label id="est"> Estadística</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="mr_i"><label id="mr"> Mecánica Racional</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="mc_i"><label id="mc"> Microcontroladores</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ti_i"><label id="ti"> Tecnología Industrial</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sc_i"><label id="sc"> Sistemas de Control</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ai_i"><label id="ai"> Automatización Industrial</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="mem_i"><label id="mem"> Mecanismos y Elementos de Máquinas</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="se_i"><label id="se"> Sistemas Embebidos</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="r1_i"><label id="r1"> Robótica I</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ga_i"><label id="ga"> Gestión Ambiental</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ep_i"><label id="ep"> Electrónica de Potencia</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ia_i"><label id="ia"> Inteligencia Artificial</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sm2_i"><label id="sm2"> Sistemas Mecatrónicos II</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sanh_i"><label id="sanh"> Sistemas de Actuación Neumática e Hidráulica</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="r2_i"><label id="r2"> Robótica II</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sorc_i" name="sorc_i"><label id="sorc"> Sistemas Operativos y Redes de Comunicación</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ogi_i"><label id="ogi"> Organización y Gestión Industrial</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="hsi_i"><label id="hsi"> Higiene y Seguridad Industrial</label><br>
-  <input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="pim_i"><label id="pim"> Proyecto de Ingeniería Mecatrónica</label><br><br>
+  <label>1 1</label><input type="checkbox" onclick='myFunction(this);' id="mb_i"><label id="mb"> Matemática Básica</label><br>
+  <label>1 1</label><input type="checkbox" onclick='myFunction(this);' id="ic_i"><label id="ic"> Introducción al Cálculo</label><br>
+  <label>1 1</label><input type="checkbox" onclick='myFunction(this);' id="sr1_i"><label id="sr1"> Sistemas de Representación I</label><br>
+  <label>1 1</label><input type="checkbox" onclick='myFunction(this);' id="if_i"><label id="if"> Introducción a Física</label><br>
+  <label>1 1</label><input type="checkbox" onclick='myFunction(this);' name="th" id="fi_i"><label id="fi"> Fundamentos de Informática</label><br>
+  <label>1 1</label><input type="checkbox" onclick='myFunction(this);' name="th" id="dcc_i"><label id="dcc" > Desarrollo de la Competencia Comunicativa</label><br>
+  <label>1 1</label><input type="checkbox" onclick='myFunction(this);' id="ii_i"><label id="ii"> Introducción a la Ingeniería</label><br>
+  <label>1 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="f1_i"><label id="f1"> Física I</label><br>
+  <label>1 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="c1_i"><label id="c1"> Cálculo I</label><br>
+  <label>1 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sr2_i"><label id="sr2"> Sistemas de Representación II</label><br>
+  <label>1 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="q_i"><label id="q"> Química</label><br>
+  <label>1 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="co1_i"><label id="co1"> Computación I</label><br>
+  <label>2 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="f2_i"><label id="f2"> Física II</label><br>
+  <label>2 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="alga_i"><label id="alga"> Álgebra Lineal y Geometría Analítica</label><br>
+  <label>2 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="tmt_i"><label id="tmt"> Termodinámica y Máquinas Térmicas</label><br>
+  <label>2 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="co2_i"><label id="co2"> Computación II</label><br>
+  <label>2 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="i1_i"><label id="i1"> Inglés I</label><br>
+  <label>2 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="f3_i"><label id="f3"> Física III</label><br>
+  <label>2 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="c2_i"><label id="c2"> Cálculo II</label><br>
+  <label>2 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="et_i"><label id="et"> Electrotecnia</label><br>
+  <label>2 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="cm_i"><label id="cm"> Ciencias de los Materiales</label><br>
+  <label>3 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="edcn_i"><label id="edcn"> Ecuaciones Diferenciales y Cálculo Numérico</label><br>
+  <label>3 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="eb_i"><label id="eb"> Electrónica Básica</label><br>
+  <label>3 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="erm_i"><label id="erm"> Estática y Resistencia de los Materiales</label><br>
+  <label>3 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ss_i"><label id="ss"> Sistemas y Señales</label><br>
+  <label>3 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="lmmee_i"><label id="lmmee"> Laboratorio de Mediciones Mecánicas, Eléctricas y Electrónicas</label><br>
+  <label>3 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="i2_i"><label id="i2"> Inglés II</label><br>
+  <label>3 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ed_i"><label id="ed"> Electrónica Digital</label><br>
+  <label>3 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sm1_i"><label id="sm1"> Sistemas Mecatrónicos I</label><br>
+  <label>3 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="mei_i"><label id="mei"> Máquinas Eléctricas Industriales</label><br>
+  <label>3 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="iei_i"><label id="iei"> Instalaciones Eléctricas Industriales</label><br>
+  <label>4 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="est_i"><label id="est"> Estadística</label><br>
+  <label>4 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="mr_i"><label id="mr"> Mecánica Racional</label><br>
+  <label>4 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="mc_i"><label id="mc"> Microcontroladores</label><br>
+  <label>4 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ti_i"><label id="ti"> Tecnología Industrial</label><br>
+  <label>4 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sc_i"><label id="sc"> Sistemas de Control</label><br>
+  <label>4 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ai_i"><label id="ai"> Automatización Industrial</label><br>
+  <label>4 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="mem_i"><label id="mem"> Mecanismos y Elementos de Máquinas</label><br>
+  <label>4 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="se_i"><label id="se"> Sistemas Embebidos</label><br>
+  <label>4 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="r1_i"><label id="r1"> Robótica I</label><br>
+  <label>4 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ga_i"><label id="ga"> Gestión Ambiental</label><br>
+  <label>5 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ep_i"><label id="ep"> Electrónica de Potencia</label><br>
+  <label>5 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ia_i"><label id="ia"> Inteligencia Artificial</label><br>
+  <label>5 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sm2_i"><label id="sm2"> Sistemas Mecatrónicos II</label><br>
+  <label>5 1</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sanh_i"><label id="sanh"> Sistemas de Actuación Neumática e Hidráulica</label><br>
+  <label>5 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="r2_i"><label id="r2"> Robótica II</label><br>
+  <label>5 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="sorc_i" name="sorc_i"><label id="sorc"> Sistemas Operativos y Redes de Comunicación</label><br>
+  <label>5 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="ogi_i"><label id="ogi"> Organización y Gestión Industrial</label><br>
+  <label>5 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="hsi_i"><label id="hsi"> Higiene y Seguridad Industrial</label><br>
+  <label>5 2</label><input type="checkbox" disabled="disabled" onclick='myFunction(this);' id="pim_i"><label id="pim"> Proyecto de Ingeniería Mecatrónica</label><br><br>
   
   
 
