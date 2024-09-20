@@ -77,6 +77,20 @@
     padding-left:0px;
   }
 
+  #t {
+    background-color: #ffffff;
+    font-weight: bold;
+    color: #000000;
+    display:inline;
+    white-space:pre-wrap;
+    line-height : 24px;
+    font-size: 14px;
+    font-family:arial, sans-serif;
+    padding: 5px;
+    padding-left:0px;
+  }
+
+
   label {
     background-color: #ffffff;
     color: #000000;
