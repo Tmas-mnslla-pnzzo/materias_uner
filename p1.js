@@ -1,143 +1,158 @@
-let data={
-  "mb":[],
-  "ic":[],
-  "sr1":[],
-  "if":[],
-  "fi":[],
-  "dcc":[],
-  "ii":[],
-  "f1":   [1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "c1":   [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "sr2":  [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "q":[],
-  "co1":  [0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "f2":   [0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "alga": [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "tmt":  [0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "co2":  [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "i1":   [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "f3":   [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "c2":   [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "et":   [0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "cm":   [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "edcn": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "eb":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "erm":  [0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "ss":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "lmmee":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "i2":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "ed":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "sm1":  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "mei":  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "iei":  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "est":  [1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "mr":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "mc":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "ti":   [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "sc":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "ai":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "mem":  [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "se":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "r1":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "ga":   [0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "ep":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "ia":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "sm2":  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "sanh": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "r2":   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
-  "sorc": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0],
-  "ogi":  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-  "hsi":  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
-  "pim":  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0],
-  }
-
 function myFunction(ele) {
-  var id=ele.id;
-  let id2=id.slice(0, -2);
-  var box = document.getElementById(id2);
-  var checkBox = document.getElementById(id);
-  var corr=comprobar()[0];
-  var corrd=comprobar()[1];
-  var cajas=comprobar()[2];
-  var por=cajas.length/50*100;
+  const id = ele.id;
+  const id2 = id.slice(0, -2);
+  const box = document.getElementById(id2);
+  const checkBox = document.getElementById(id);
 
-  document.getElementById("r").innerHTML = "Carrera completada al "+por.toString()+"%";
+  const [approved, disabled, checkedNames] = comprobar();
 
-  for (var i = 0; i < corr.length; i++) {
-    var box2 = document.getElementById(corr[i]);
-    box2.style.background = "#59cd90";
-    var cbox2 = document.getElementById(corr[i]+"_i");
-    cbox2.disabled = false;
-  }
+  const progress = (checkedNames.length / Object.keys(data).length) * 100;
+  document.getElementById("r").innerHTML = `Carrera completada al ${progress.toFixed(2)}%`;
 
-  for (var i = 0; i < cajas.length; i++) {
-    var box2 = document.getElementById(cajas[i]);
-    box2.style.background = "#3fa7d6";
-  }
+  approved.forEach((id) => {
+    document.getElementById(id).style.background = "#59cd90";
+    document.getElementById(`${id}_i`).disabled = false;
+  });
 
-  for (var i = 0; i < corrd.length; i++) {
-    var box3 = document.getElementById(corrd[i]);
-    box3.style.background = "#FFFFFF";
-    var cbox3 = document.getElementById(corrd[i]+"_i");
-    cbox3.disabled = true;
-    cbox3.checked = false;
-  }
+  disabled.forEach((id) => {
+    document.getElementById(id).style.background = "#FFFFFF";
+    document.getElementById(`${id}_i`).disabled = true;
+    document.getElementById(`${id}_i`).checked = false;
+  });
+}
 
-} 
+function comprobar() {
+  const estado = toggle();
+  const approved = [];
+  const disabled = [];
+  const checkedNames = [];
 
-function comprobar(){
-  var estado=toggle();
-  var apr=[];
-  var checknames=[];
-  var des=[];
-  names=Object.keys(data);
-
-  for(var i = 0; i < estado.length; i++){
-    var est_i=getAllIndexes(estado, 1);
-    var nam_i=getAllIndexes(data[names[i]], 1);
-    if (estado[i]==1) {
-      checknames.push(names[i]);
+  Object.keys(data).forEach((key, index) => {
+    if (estado[index] === 1) {
+      checkedNames.push(key);
     }
-  }
+  });
 
-  for(var i = 0; i < names.length; i++){
-    var est_i=getAllIndexes(estado, 1);
-    var nam_i=getAllIndexes(data[names[i]], 1);
-    if (checkSubset(est_i,nam_i)==true) {
-      apr.push(names[i]);
+  Object.keys(data).forEach((key) => {
+    const requiredIndexes = getAllIndexes(data[key], 1);
+    const requiredNames = requiredIndexes.map((index) => Object.keys(data)[index]);
+
+    if (checkSubset(checkedNames, requiredNames)) {
+      approved.push(key);
     } else {
-      des.push(names[i]);
+      disabled.push(key);
     }
-  }
-  var combo=[apr,des,checknames];
-  return combo;
+  });
+
+  return [approved, disabled, checkedNames];
 }
 
 function toggle() {
-  let y=[];
-  var checkboxes = document.querySelectorAll('input[type=checkbox]');
-  for(var i = 0; i < checkboxes.length; i++){
-    if (checkboxes[i].checked==true) {
-      y.push(1);
-    } else { 
-      y.push(0);
-      }
-  }
-  return y;
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  return Array.from(checkboxes).map((checkbox) => (checkbox.checked ? 1 : 0));
 }
-  
 
 function getAllIndexes(arr, val) {
-  var indexes = [], i;
-  for(i = 0; i < arr.length; i++)
-      if (arr[i] === val)
-          indexes.push(i);
-  return indexes;
+  return arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
 }
 
-
-let checkSubset = (parentArray, subsetArray) => {
-  return subsetArray.every((el) => {
-      return parentArray.includes(el)
-  })
+function checkSubset(parentArray, subsetArray) {
+  return subsetArray.every((el) => parentArray.includes(el));
 }
+
+document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+  checkbox.addEventListener('click', (e) => myFunction(e.target));
+});
+
+const materiasPorAnio = {
+  primerAnio: ["mb_i", "ic_i", "sr1_i", "if_i", "fi_i", "dcc_i", "ii_i", "f1_i", "c1_i", "sr2_i", "q_i", "co1_i"],
+  segundoAnio: ["f2_i", "alga_i", "tmt_i", "co2_i", "i1_i", "f3_i", "c2_i", "et_i", "cm_i"],
+  tercerAnio: ["edcn_i", "eb_i", "erm_i", "ss_i", "lmmee_i", "i2_i", "ed_i", "sm1_i", "mei_i", "iei_i"],
+  cuartoAnio: ["est_i", "mr_i", "mc_i", "ti_i", "sc_i", "ai_i", "mem_i", "se_i", "r1_i", "ga_i"],
+  quintoAnio: ["ep_i", "ia_i", "sm2_i", "sanh_i", "r2_i", "sorc_i", "ogi_i", "hsi_i", "pim_i"],
+};
+
+function isAnioCompleto(anio) {
+  const materias = materiasPorAnio[anio];
+  return materias.every((materia) => document.getElementById(materia).checked);
+}
+
+function seleccionarAnio(anio) {
+  const materias = materiasPorAnio[anio];
+  materias.forEach((materia) => {
+    const checkbox = document.getElementById(materia);
+    if (!checkbox.disabled) {
+      checkbox.checked = true;
+      myFunction(checkbox);
+    }
+  });
+}
+
+function deseleccionarAnio(anio) {
+  const materias = materiasPorAnio[anio];
+  materias.forEach((materia) => {
+    const checkbox = document.getElementById(materia);
+    checkbox.checked = false;
+    myFunction(checkbox);
+  });
+}
+
+document.getElementById("selectPrimerAnio").addEventListener("click", (e) => {
+  if (e.target.checked) {
+    seleccionarAnio("primerAnio");
+  } else {
+    deseleccionarAnio("primerAnio");
+  }
+});
+
+document.getElementById("selectSegundoAnio").addEventListener("click", (e) => {
+  if (e.target.checked) {
+    if (isAnioCompleto("primerAnio")) {
+      seleccionarAnio("segundoAnio");
+    } else {
+      alert("Debes completar todas las materias del Primer Año primero.");
+      e.target.checked = false;
+    }
+  } else {
+    deseleccionarAnio("segundoAnio");
+  }
+});
+
+document.getElementById("selectTercerAnio").addEventListener("click", (e) => {
+  if (e.target.checked) {
+    if (isAnioCompleto("segundoAnio")) {
+      seleccionarAnio("tercerAnio");
+    } else {
+      alert("Debes completar todas las materias del Segundo Año primero.");
+      e.target.checked = false;
+    }
+  } else {
+    deseleccionarAnio("tercerAnio");
+  }
+});
+
+document.getElementById("selectCuartoAnio").addEventListener("click", (e) => {
+  if (e.target.checked) {
+    if (isAnioCompleto("tercerAnio")) {
+      seleccionarAnio("cuartoAnio");
+    } else {
+      alert("Debes completar todas las materias del Tercer Año primero.");
+      e.target.checked = false;
+    }
+  } else {
+    deseleccionarAnio("cuartoAnio");
+  }
+});
+
+document.getElementById("selectQuintoAnio").addEventListener("click", (e) => {
+  if (e.target.checked) {
+    if (isAnioCompleto("cuartoAnio")) {
+      seleccionarAnio("quintoAnio");
+    } else {
+      alert("Debes completar todas las materias del Cuarto Año primero.");
+      e.target.checked = false;
+    }
+  } else {
+    deseleccionarAnio("quintoAnio");
+  }
+});
