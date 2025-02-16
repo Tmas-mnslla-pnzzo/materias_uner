@@ -1,69 +1,63 @@
-function myFunction(ele) {
-  const id = ele.id;
-  const id2 = id.slice(0, -2);
-  const box = document.getElementById(id2);
-  const checkBox = document.getElementById(id);
+// Diccionario de requisitos previos (debes completarlo con todas las materias)
 
+// Función principal que se ejecuta al hacer clic en un checkbox
+function myFunction(ele) {
+  const id = ele.id.replace("_i", ""); // Eliminar el sufijo "_i" para obtener el ID de la materia
+  const checkBox = document.getElementById(ele.id);
+
+  // Verificar el estado de las materias y actualizar la interfaz
   const [approved, disabled, checkedNames] = comprobar();
 
+  // Actualizar el progreso de la carrera
   const progress = (checkedNames.length / Object.keys(data).length) * 100;
   document.getElementById("r").innerHTML = `Carrera completada al ${progress.toFixed(2)}%`;
 
-  approved.forEach((id) => {
-    document.getElementById(id).style.background = "#59cd90";
-    document.getElementById(`${id}_i`).disabled = false;
+  // Habilitar/deshabilitar materias según los requisitos
+  approved.forEach((materia) => {
+    document.getElementById(`${materia}_i`).disabled = false;
+    document.getElementById(materia).style.background = "#59cd90"; // Color verde para materias aprobadas
   });
 
-  disabled.forEach((id) => {
-    document.getElementById(id).style.background = "#FFFFFF";
-    document.getElementById(`${id}_i`).disabled = true;
-    document.getElementById(`${id}_i`).checked = false;
+  disabled.forEach((materia) => {
+    document.getElementById(`${materia}_i`).disabled = true;
+    document.getElementById(`${materia}_i`).checked = false;
+    document.getElementById(materia).style.background = "#FFFFFF"; // Color blanco para materias deshabilitadas
   });
 }
 
+// Función para verificar los requisitos previos de cada materia
 function comprobar() {
-  const estado = toggle();
-  const approved = [];
-  const disabled = [];
-  const checkedNames = [];
+  const approved = []; // Materias que cumplen con los requisitos
+  const disabled = []; // Materias que no cumplen con los requisitos
+  const checkedNames = []; // Nombres de las materias seleccionadas
 
-  Object.keys(data).forEach((key, index) => {
-    if (estado[index] === 1) {
-      checkedNames.push(key);
+  // Obtener las materias seleccionadas
+  Object.keys(data).forEach((materia) => {
+    const checkbox = document.getElementById(`${materia}_i`);
+    if (checkbox.checked) {
+      checkedNames.push(materia);
     }
   });
 
-  Object.keys(data).forEach((key) => {
-    const requiredIndexes = getAllIndexes(data[key], 1);
-    const requiredNames = requiredIndexes.map((index) => Object.keys(data)[index]);
-
-    if (checkSubset(checkedNames, requiredNames)) {
-      approved.push(key);
+  // Verificar los requisitos previos para cada materia
+  Object.keys(data).forEach((materia) => {
+    const requisitos = data[materia];
+    if (requisitos.every((req) => checkedNames.includes(req))) {
+      approved.push(materia); // Si cumple con los requisitos, se aprueba
     } else {
-      disabled.push(key);
+      disabled.push(materia); // Si no cumple, se deshabilita
     }
   });
 
   return [approved, disabled, checkedNames];
 }
 
-function toggle() {
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  return Array.from(checkboxes).map((checkbox) => (checkbox.checked ? 1 : 0));
-}
-
-function getAllIndexes(arr, val) {
-  return arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
-}
-
-function checkSubset(parentArray, subsetArray) {
-  return subsetArray.every((el) => parentArray.includes(el));
-}
-
+// Asignar eventos a los checkboxes
 document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-  checkbox.addEventListener('click', (e) => myFunction(e.target));
+  checkbox.addEventListener("click", (e) => myFunction(e.target));
 });
 
+// Lógica para seleccionar/deseleccionar todo un año
 const materiasPorAnio = {
   primerAnio: ["mb_i", "ic_i", "sr1_i", "if_i", "fi_i", "dcc_i", "ii_i", "f1_i", "c1_i", "sr2_i", "q_i", "co1_i"],
   segundoAnio: ["f2_i", "alga_i", "tmt_i", "co2_i", "i1_i", "f3_i", "c2_i", "et_i", "cm_i"],
@@ -72,11 +66,13 @@ const materiasPorAnio = {
   quintoAnio: ["ep_i", "ia_i", "sm2_i", "sanh_i", "r2_i", "sorc_i", "ogi_i", "hsi_i", "pim_i"],
 };
 
+// Función para verificar si un año está completo
 function isAnioCompleto(anio) {
   const materias = materiasPorAnio[anio];
   return materias.every((materia) => document.getElementById(materia).checked);
 }
 
+// Función para seleccionar todas las materias de un año
 function seleccionarAnio(anio) {
   const materias = materiasPorAnio[anio];
   materias.forEach((materia) => {
@@ -88,6 +84,7 @@ function seleccionarAnio(anio) {
   });
 }
 
+// Función para deseleccionar todas las materias de un año
 function deseleccionarAnio(anio) {
   const materias = materiasPorAnio[anio];
   materias.forEach((materia) => {
@@ -97,6 +94,7 @@ function deseleccionarAnio(anio) {
   });
 }
 
+// Asignar eventos a los botones de "Seleccionar Todo"
 document.getElementById("selectPrimerAnio").addEventListener("click", (e) => {
   if (e.target.checked) {
     seleccionarAnio("primerAnio");
@@ -136,7 +134,7 @@ document.getElementById("selectCuartoAnio").addEventListener("click", (e) => {
     if (isAnioCompleto("tercerAnio")) {
       seleccionarAnio("cuartoAnio");
     } else {
-      alert("Debes completar todas las materias del Tercer Año primero.");
+      alert("Debes completar todas las materias del tercer Año primero.");
       e.target.checked = false;
     }
   } else {
