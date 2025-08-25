@@ -1,5 +1,3 @@
-// Diccionario de requisitos previos (debes completarlo con todas las materias)
-
 // Función principal que se ejecuta al hacer clic en un checkbox
 function myFunction(ele) {
   const id = ele.id.replace("_i", ""); // Eliminar el sufijo "_i" para obtener el ID de la materia
