@@ -34,7 +34,7 @@ const data = {
   mr: ['edcn', 'erm'],
   mc: ['co2', 'lmmee', 'ed'],
   ti: ['sr2', 'erm'],
-  sc: ['co2', 'lmmee', 'ed'],
+  sc: ['co2', 'lmmee', 'ed','ss'],
   ai: ['ed'],
   mem: ['sr2', 'mr'],
   se: ['mc'],
@@ -50,3 +50,4 @@ const data = {
   hsi: ['mei', 'iei', 'ga'],
   pim: ['mb', 'ic', 'sr1', 'if', 'fi', 'dcc', 'ii', 'f1', 'c1', 'sr2', 'q', 'co1', 'f2', 'alga', 'tmt', 'co2', 'i1', 'f3', 'c2', 'et', 'cm', 'edcn', 'eb', 'erm', 'ss', 'lmmee', 'i2', 'ed', 'sm1', 'mei', 'iei', 'est', 'mr', 'mc', 'ti', 'sc', 'ai', 'mem', 'se', 'r1', 'ga', 'ep', 'ia', 'sm2', 'sanh', 'r2', 'sorc', 'ogi', 'hsi']
   };
+
