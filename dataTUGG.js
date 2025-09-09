@@ -3,6 +3,8 @@ const materiasPorAnio = {
   segundoAnio: ["tac", "inf", "cca", "gg2", "nut", "gi", "cos", "rp", "ecp", "egs", "pps"]
 }
 
+const primerCuatri = ["mkt", "q", "mat", "igg", "adm","i","hsa"]
+
 const data_a = { 
   mkt: [],
   q: [],
