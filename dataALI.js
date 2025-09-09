@@ -6,6 +6,8 @@ const materiasPorAnio = {
   quintoAnio: ["tpi","pfa","il","biote","pa","econ","hsi","icarn","acca","sga"],
 }
 
+const primerCuatri = ["mb","ic","q1","dcc", "idp", "fi","sr"]
+
 const data_a = { 
   mb: [],
   ic: [],
