@@ -44,7 +44,7 @@ function myFunction(ele) {
       if (materiasAprobadasAntes[index] && !regularCheckbox.checked && checkbox.checked) {
         checkbox.checked = false;
       } else if (!materiasAprobadasAntes[index] && checkbox.checked) {
-        regularCheckbox.checked = true;
+        //regularCheckbox.checked = true; //modificar luego
       }
     } catch (error) {
       console.log(1);
@@ -83,13 +83,32 @@ function comprobar() {
     const requisitosRegular = data_r[materia];
     const requisitosAprobado_paraR = data_cursar_a[materia];
     const requisitosRegular_paraR = data_cursar_r[materia];
-    if ((requisitosAprobado.every((req) => checkedNamesA.includes(req))) && (requisitosRegular.every((req) => checkedNamesR.includes(req)))) {
-      approved.push(materia);
-    } else if ((requisitosAprobado_paraR.every((req) => checkedNamesA.includes(req))) && (requisitosRegular_paraR.every((req) => checkedNamesR.includes(req)))) {
-      regularidad.push(materia); 
-    } else {
-      disabled.push(materia); 
+    if (materia==='gi'){
+      console.log("...");
+      console.log((requisitosAprobado.every((req) => checkedNamesA.includes(req))),(requisitosRegular.every((req) => checkedNamesR.includes(req))));
+      console.log(checkedNamesA,requisitosRegular);
+      console.log(requisitosAprobado,requisitosRegular);
     }
+    if (!primerCuatri.includes(materia)){
+      if ((requisitosAprobado.every((req) => checkedNamesA.includes(req))) && 
+          (requisitosRegular.every((req) => checkedNamesR.includes(req))) && 
+          (requisitosAprobado.length != 0 || requisitosRegular.length != 0)) {
+        approved.push(materia);
+        
+      } else if ((requisitosAprobado_paraR.every((req) => checkedNamesA.includes(req))) && 
+                  (requisitosRegular_paraR.every((req) => checkedNamesR.includes(req))) && 
+                  (requisitosAprobado_paraR.length != 0 || requisitosRegular_paraR.length != 0)) {
+        regularidad.push(materia); 
+        if (requisitosAprobado.length === 0 && requisitosRegular.length === 0){
+          approved.push(materia);
+        }
+      } else {
+        disabled.push(materia);
+      }
+    } else {
+      approved.push(materia);
+    }
+
   });
 
   return [approved, regularidad, disabled, checkedNamesA, checkedNamesR];
@@ -110,10 +129,12 @@ function isAnioCompleto(anio) {
 function seleccionarAnio(anio) {
   const materias = materiasPorAnio[anio];
   materias.forEach((materia) => {
-    const checkbox = document.getElementById(`${materia}_i`);
-    if (!checkbox.disabled) {
-      checkbox.checked = true;
-      myFunction(checkbox);
+    const checkboxA = document.getElementById(`${materia}_i`);
+    const checkboxR = document.getElementById(`${materia}_j`);
+    if (!checkboxA.disabled) {
+      checkboxA.checked = true;
+      checkboxR.checked = true; //modificar luego
+      myFunction(checkboxA);
     }
   });
 }
