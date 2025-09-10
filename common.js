@@ -42,7 +42,7 @@ function myFunction(ele) {
     try {
       const materiasAprobadasAntes = JSON.parse(localStorage.getItem('materiasRegularesAntes'));
       if (materiasAprobadasAntes[index] && !regularCheckbox.checked && checkbox.checked) {
-        checkbox.checked = false;
+        //checkbox.checked = false; //modificar luego
       } else if (!materiasAprobadasAntes[index] && checkbox.checked) {
         //regularCheckbox.checked = true; //modificar luego
       }
