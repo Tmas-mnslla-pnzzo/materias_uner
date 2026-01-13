@@ -1,8 +1,26 @@
 function myFunction(ele) {
-  const [approved, regularidad, disabled, checkedNamesA, checkedNamesR] = comprobar();
+  if (ele) {
+    const idMateria = ele.id.slice(0, -2); 
+    const checkAprobada = document.getElementById(`${idMateria}_i`);
+    const checkRegular = document.getElementById(`${idMateria}_j`);
 
+    if (ele === checkAprobada && checkAprobada.checked) {
+      checkRegular.checked = true;
+      checkRegular.style.backgroundColor = "#ffae00"; 
+    }
+
+    if (ele === checkRegular && !checkRegular.checked) {
+      checkAprobada.checked = false;
+      checkAprobada.style.backgroundColor = "#dfdfdf";
+    }
+  }
+
+  const [approved, regularidad, disabled, checkedNamesA, checkedNamesR] = comprobar();
   const progress = (checkedNamesA.length / Object.keys(data_a).length) * 100;
-  document.getElementById("r1").innerHTML = `Ingeniería completada al ${progress.toFixed(2)}%`;
+  const progressElement = document.getElementById("r1");
+  if (progressElement) {
+      progressElement.innerHTML = `Carrera completada al ${progress.toFixed(2)}%`;
+  }
 
   approved.forEach((materia) => {
     const aprobadaCheckbox = document.getElementById(`${materia}_i`);
@@ -10,54 +28,61 @@ function myFunction(ele) {
 
     aprobadaCheckbox.disabled = false;
     regularCheckbox.disabled = false;
-    aprobadaCheckbox.style.backgroundColor = "#1eff00ff";
-    regularCheckbox.style.backgroundColor = "#ffae00";
 
+    aprobadaCheckbox.style.backgroundColor = "#1eff00"; 
+    regularCheckbox.style.backgroundColor = "#ffae00";  
   });
 
   regularidad.forEach((materia) => {
     const aprobadaCheckbox = document.getElementById(`${materia}_i`);
     const regularCheckbox = document.getElementById(`${materia}_j`);
 
-    regularCheckbox.disabled = false;
-    regularCheckbox.style.backgroundColor = "#ffae00";
+    aprobadaCheckbox.disabled = true;
+    aprobadaCheckbox.checked = false; 
+    aprobadaCheckbox.style.backgroundColor = "#dfdfdf"; 
 
+    regularCheckbox.disabled = false;
+    regularCheckbox.style.backgroundColor = "#ffae00"; 
   });
+
+  let huboCambioForzado = false; 
 
   disabled.forEach((materia) => {
-    document.getElementById(`${materia}_i`).disabled = true;
-    document.getElementById(`${materia}_i`).checked = false;
-    document.getElementById(`${materia}_j`).disabled = true;
-    document.getElementById(`${materia}_j`).checked = false;
-    document.getElementById(`${materia}_j`).style.backgroundColor = "#dfdfdfff";
-    document.getElementById(`${materia}_i`).style.backgroundColor = "#dfdfdfff";
-  });
+    const checkI = document.getElementById(`${materia}_i`);
+    const checkJ = document.getElementById(`${materia}_j`); 
 
-  const checkboxesChequeadosAprobadas = document.querySelectorAll('.checkbox-materia-a:not(:disabled)');
-  const checkboxesChequeadosRegulares = document.querySelectorAll('.checkbox-materia-r:not(:disabled)');
-  
-  checkboxesChequeadosAprobadas.forEach((checkbox, index) => {
-    const idMateria = checkbox.id.replace('_i', '');
-    const regularCheckbox = document.getElementById(`${idMateria}_j`);
-    try {
-      const materiasAprobadasAntes = JSON.parse(localStorage.getItem('materiasRegularesAntes'));
-      if (materiasAprobadasAntes[index] && !regularCheckbox.checked && checkbox.checked) {
-        //checkbox.checked = false; //modificar luego
-      } else if (!materiasAprobadasAntes[index] && checkbox.checked) {
-        //regularCheckbox.checked = true; //modificar luego
-      }
-    } catch (error) {
-      console.log(1);
+    if (checkI.checked || checkJ.checked) {
+        huboCambioForzado = true;
     }
+
+    checkI.disabled = true;
+    checkJ.disabled = true;
+
+    checkI.checked = false;
+    checkJ.checked = false;
+
+    checkI.style.backgroundColor = "#dfdfdf";
+    checkJ.style.backgroundColor = "#dfdfdf";
   });
 
-  const materiasAprobadasAntes = Array.from(checkboxesChequeadosAprobadas).map(checkbox => checkbox.checked);
-  const materiasRegularesAntes = Array.from(checkboxesChequeadosRegulares).map(checkbox => checkbox.checked);
-  localStorage.setItem("materiasRegularesAntes", JSON.stringify(materiasRegularesAntes));
-  localStorage.setItem("materiasAprobadasAntes", JSON.stringify(materiasAprobadasAntes));
+  if (huboCambioForzado) {
+      myFunction(null); 
+  } else {
+      guardarEnLocalStorage();
+  }
 }
 
-// Función para verificar los requisitos previos de cada materia
+function guardarEnLocalStorage() {
+  const checkboxesA = document.querySelectorAll('.checkbox-materia-a:not(:disabled)');
+  const checkboxesR = document.querySelectorAll('.checkbox-materia-r:not(:disabled)');
+  
+  const materiasAprobadas = Array.from(checkboxesA).map(c => c.checked);
+  const materiasRegulares = Array.from(checkboxesR).map(c => c.checked);
+  
+  localStorage.setItem("materiasRegularesAntes", JSON.stringify(materiasRegulares));
+  localStorage.setItem("materiasAprobadasAntes", JSON.stringify(materiasAprobadas));
+}
+
 function comprobar() {
   const approved = []; 
   const regularidad = [];
@@ -65,7 +90,6 @@ function comprobar() {
   const checkedNamesR = []; 
   const checkedNamesA = [];
 
-  // Obtener las materias seleccionadas
   Object.keys(data_a).forEach((materia) => {
     const checkbox_aprobada = document.getElementById(`${materia}_i`);
     const checkbox_regular = document.getElementById(`${materia}_j`);
@@ -77,7 +101,6 @@ function comprobar() {
     }
   });
 
-  // Verificar los requisitos previos para cada materia
   Object.keys(data_a).forEach((materia) => {
     const requisitosAprobado = data_a[materia];
     const requisitosRegular = data_r[materia];
@@ -114,18 +137,15 @@ function comprobar() {
   return [approved, regularidad, disabled, checkedNamesA, checkedNamesR];
 }
 
-// Asignar eventos a los checkboxes
 document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
   checkbox.addEventListener("click", (e) => myFunction(e.target));
 });
 
-// Función para verificar si un año está completo
 function isAnioCompleto(anio) {
   const materias = materiasPorAnio[anio];
   return materias.every((materia) => document.getElementById(`${materia}_i`).checked);
 }
 
-// Función para seleccionar todas las materias de un año
 function seleccionarAnio(anio) {
   const materias = materiasPorAnio[anio];
   materias.forEach((materia) => {
@@ -133,13 +153,12 @@ function seleccionarAnio(anio) {
     const checkboxR = document.getElementById(`${materia}_j`);
     if (!checkboxA.disabled) {
       checkboxA.checked = true;
-      checkboxR.checked = true; //modificar luego
+      checkboxR.checked = true; 
       myFunction(checkboxA);
     }
   });
 }
 
-// Función para deseleccionar todas las materias de un año
 function deseleccionarAnio(anio) {
   const materias = materiasPorAnio[anio];
   materias.forEach((materia) => {
@@ -151,7 +170,6 @@ function deseleccionarAnio(anio) {
   });
 }
 
-// Asignar eventos a los botones de "Seleccionar Todo"
 document.getElementById("selectPrimerAnio").addEventListener("click", (e) => {
   if (e.target.checked) {
     seleccionarAnio("primerAnio");
