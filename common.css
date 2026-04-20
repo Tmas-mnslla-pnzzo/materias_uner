@@ -129,6 +129,24 @@
     background-color: var(--tecn-color); 
   }
 
+.home-btn {
+    position: fixed;   /* Queda siempre visible aunque hagas scroll */
+    top: 50%;          /* Lo baja hasta la mitad de la pantalla */
+    left: 10px;        /* Lo separa apenas un poquito del borde físico */
+    transform: translateY(-50%); /* Lo centra perfecto verticalmente */
+    z-index: 1000;     /* Asegura que quede por encima de los fondos de colores */
+}
+
+.home-btn img {
+    width: 35px;       /* Un tamaño cómodo para clickear */
+    height: auto;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.home-btn:hover img {
+    transform: scale(1.2); /* Efecto de agrandado al pasar el mouse */
+}
   .checkbox-container {
     margin-bottom: 10px;
   }
