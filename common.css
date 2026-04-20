@@ -128,8 +128,6 @@
     width: 600px;
     background-color: var(--tecn-color); 
   }
-
-
   .checkbox-container {
     margin-bottom: 10px;
   }
@@ -314,4 +312,69 @@
     font-size: 12px;
     font-weight: bold;
     line-height: 1;
+}
+
+@media (max-width: 768px) {
+
+
+  /* Ajuste de los checkboxes para que sea más fácil tocarlos con el dedo */
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+
+  .titulo {
+    display: none;
+  }
+.container-principal {
+    display: block; /* Cambiamos de flex a block para que ocupe todo el ancho */
+    width: 100%;
+    padding: 10px;
+  }
+.opciones {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 !important;
+    gap: 0 !important; /* Clave para que no haya separación */
+  }
+  .opciones input {
+    margin-top: 3px;    /* Espacio arriba */
+    margin-bottom: 3px; /* Espacio abajo */
+    display: inline-block; /* Necesario para que el margen vertical funcione bien */
+    vertical-align: middle; 
+  }
+
+  /* Ajuste específico para que el nombre de la materia no se rompa feo */
+  .opciones label[id] {
+    padding-bottom: 15px; /* Crea un espacio extra después del nombre */
+    cursor: pointer;
+  }
+  .fondo-tecnicatura, 
+  .fondo-ingenieria, 
+  .fondo-tecnicatura-m, 
+  .fondo-tecnicatura-t, 
+  .fondo-ingenieria-m,
+  .fondo-tecnicatura-intermedio,
+  .fondo-ingenieria-intermedio {
+    width: 100% !important;
+    margin: 0 !important; /* Eliminamos cualquier margen que haga "isla" */
+    padding: 10px 15px !important;
+    border-radius: 0 !important; /* Quitamos bordes redondeados para que encajen perfecto */
+    line-height: 1; /* Mantenemos la separación de los checkboxes */
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Título principal más chico para que no ocupe media pantalla */
+  }
+.opciones div:first-child {
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+  }
+  .opciones div:last-child {
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+    padding-bottom: 30px !important;
+  }
 }
