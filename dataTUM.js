@@ -4,6 +4,8 @@ const materiasPorAnio = {
   tercerAnio: ["eb", "lmmee", "ed", "sm1", "mei", "est"],
 };
 
+const primerCuatri = ["mb", "ic", "sr1", "if", "fi", "dcc", "ii","q"]
+
 const data_a = {
   mb: [],
   ic: [],
